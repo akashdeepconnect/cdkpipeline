@@ -15,10 +15,10 @@ class PipelineStack(core.Stack):
 
 
         source_action=cpactions.GitHubSourceAction(
-            action_name= 'Github'
+            action_name= 'Github',
             output=source_artifact,
             oauth_token=core.SecretValue.secrets_manager('github-token'),
-            owner='akshdeepconnect',
+            owner='akashdeepconnect',
             repo='cdkpipeline',
             trigger=cpactions.GitHubTrigger.POLL
             ),
@@ -27,7 +27,7 @@ class PipelineStack(core.Stack):
         synth_action=pipelines.SimpleSynthAction(
             source_artifact=source_artifact,
             cloud_assembly_artifact=cloud_assembly_artifact,
-            install_command='npm install -g aws-cdk && pip install -r requirement.txt'
+            install_command='npm install -g aws-cdk && pip install -r requirements.txt',
             synth_command='cdk synth'
         )
         )

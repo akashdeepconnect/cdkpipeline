@@ -1,0 +1,716 @@
+{
+  "Resources": {
+    "HandlerServiceRoleFCDC14AE": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Handler/ServiceRole/Resource"
+      }
+    },
+    "Handler886CB40B": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+          },
+          "S3Key": "d479b0673ae15507e54969cfd0e90dec7cb7ddbae95cc93464e0f822f4c455f6.zip"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "HandlerServiceRoleFCDC14AE",
+            "Arn"
+          ]
+        },
+        "Handler": "handler.handler",
+        "Runtime": "python3.7"
+      },
+      "DependsOn": [
+        "HandlerServiceRoleFCDC14AE"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Handler/Resource",
+        "aws:asset:path": "asset.d479b0673ae15507e54969cfd0e90dec7cb7ddbae95cc93464e0f822f4c455f6",
+        "aws:asset:property": "Code"
+      }
+    },
+    "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184": {
+      "Type": "AWS::Lambda::Version",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "Handler886CB40B"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Handler/CurrentVersion/Resource"
+      }
+    },
+    "Gateway43CB3636": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Description": " Endpoint for a simple lambda powered with service",
+        "Name": "Gateway"
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Resource"
+      }
+    },
+    "GatewayCloudWatchRole34305E06": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "apigateway.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/CloudWatchRole/Resource"
+      }
+    },
+    "GatewayAccount6D7AA49C": {
+      "Type": "AWS::ApiGateway::Account",
+      "Properties": {
+        "CloudWatchRoleArn": {
+          "Fn::GetAtt": [
+            "GatewayCloudWatchRole34305E06",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "Gateway43CB3636"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Account"
+      }
+    },
+    "GatewayDeployment880EB8C2834489ce2535f4c35275cdeaa6bc5218": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "Gateway43CB3636"
+        },
+        "Description": "Automatically created by the RestApi construct"
+      },
+      "DependsOn": [
+        "GatewayproxyANYCE067C19",
+        "Gatewayproxy441946D2",
+        "GatewayANY8DB43F89"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Deployment/Resource"
+      }
+    },
+    "GatewayDeploymentStageprod62BC6904": {
+      "Type": "AWS::ApiGateway::Stage",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "Gateway43CB3636"
+        },
+        "DeploymentId": {
+          "Ref": "GatewayDeployment880EB8C2834489ce2535f4c35275cdeaa6bc5218"
+        },
+        "StageName": "prod"
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/DeploymentStage.prod/Resource"
+      }
+    },
+    "Gatewayproxy441946D2": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "Gateway43CB3636",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "{proxy+}",
+        "RestApiId": {
+          "Ref": "Gateway43CB3636"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Default/{proxy+}/Resource"
+      }
+    },
+    "GatewayproxyANYApiPermissionAkashPipelineStackGateway42526861ANYproxyF4048B41": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "Gateway43CB3636"
+              },
+              "/",
+              {
+                "Ref": "GatewayDeploymentStageprod62BC6904"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Default/{proxy+}/ANY/ApiPermission.AkashPipelineStackGateway42526861.ANY..{proxy+}"
+      }
+    },
+    "GatewayproxyANYApiPermissionTestAkashPipelineStackGateway42526861ANYproxyA5E70D2F": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "Gateway43CB3636"
+              },
+              "/test-invoke-stage/*/*"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Default/{proxy+}/ANY/ApiPermission.Test.AkashPipelineStackGateway42526861.ANY..{proxy+}"
+      }
+    },
+    "GatewayproxyANYCE067C19": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "ANY",
+        "ResourceId": {
+          "Ref": "Gatewayproxy441946D2"
+        },
+        "RestApiId": {
+          "Ref": "Gateway43CB3636"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Default/{proxy+}/ANY/Resource"
+      }
+    },
+    "GatewayANYApiPermissionAkashPipelineStackGateway42526861ANY0BF2E723": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "Gateway43CB3636"
+              },
+              "/",
+              {
+                "Ref": "GatewayDeploymentStageprod62BC6904"
+              },
+              "/*/"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Default/ANY/ApiPermission.AkashPipelineStackGateway42526861.ANY.."
+      }
+    },
+    "GatewayANYApiPermissionTestAkashPipelineStackGateway42526861ANY1C94C9DE": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "Gateway43CB3636"
+              },
+              "/test-invoke-stage/*/"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Default/ANY/ApiPermission.Test.AkashPipelineStackGateway42526861.ANY.."
+      }
+    },
+    "GatewayANY8DB43F89": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "ANY",
+        "ResourceId": {
+          "Fn::GetAtt": [
+            "Gateway43CB3636",
+            "RootResourceId"
+          ]
+        },
+        "RestApiId": {
+          "Ref": "Gateway43CB3636"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/Gateway/Default/ANY/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAACk2PwU7DMBBEv6V3x1Upl94IRZxAREHibpwlbBvbkXetEln5d2ynrXLa51lrZ2YnD49yt3lSF6p0d95G7TzI+MlKn0VNBJywR9uLFsgFr0Ecf+xH4DGwODpL7IPmrK33adEho7OzyIfjoMx3p2R8DVZnOf+58xd4umorbMAbJCo3UBkZWzeU23nOgvaVyulIlpBCjdgrhouaZHwrbikP1yNeo92w1toFy+IFxsFNBmzJvnrlusVngVurZ0UgGu/+pnXPO78D/7ouSwvN8yyaKZHd7uVBPmxOhFj55IwGZLvMf1rlF2h8AQAA"
+      },
+      "Metadata": {
+        "aws:cdk:path": "AkashPipelineStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Outputs": {
+    "GatewayEndpoint4DF49EE0": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "Gateway43CB3636"
+            },
+            ".execute-api.",
+            {
+              "Ref": "AWS::Region"
+            },
+            ".",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "GatewayDeploymentStageprod62BC6904"
+            },
+            "/"
+          ]
+        ]
+      }
+    },
+    "Url": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "Gateway43CB3636"
+            },
+            ".execute-api.",
+            {
+              "Ref": "AWS::Region"
+            },
+            ".",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "GatewayDeploymentStageprod62BC6904"
+            },
+            "/"
+          ]
+        ]
+      }
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "af-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store."
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 4 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

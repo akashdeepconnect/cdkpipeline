@@ -9,9 +9,13 @@ from aws_cdk import core as cdk
 from aws_cdk import core
 
 from akash_pipeline.akash_pipeline_stack import AkashPipelineStack
-
+from akash_pipeline.pipeline_stack import PipelineStack
 
 app = core.App()
 AkashPipelineStack(app, "AkashPipelineStack")
+PipelineStack(app,'PipelineStack',env={
+    'account':'743708639786',
+    'region':'us-east-1'
+})
 
 app.synth()
