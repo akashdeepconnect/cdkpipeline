@@ -175,6 +175,32 @@
                   "Arn"
                 ]
               }
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "PipelineAssetsFileRole59943A77",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":iam::743708639786:role/cdk-hnb659fds-deploy-role-743708639786-us-east-1"
+                  ]
+                ]
+              }
             }
           ],
           "Version": "2012-10-17"
@@ -294,6 +320,115 @@
               }
             ],
             "Name": "UpdatePipeline"
+          },
+          {
+            "Actions": [
+              {
+                "ActionTypeId": {
+                  "Category": "Build",
+                  "Owner": "AWS",
+                  "Provider": "CodeBuild",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "ProjectName": {
+                    "Ref": "PipelineAssetsFileAsset185A67CB4"
+                  }
+                },
+                "InputArtifacts": [
+                  {
+                    "Name": "Artifact_Build_Synth"
+                  }
+                ],
+                "Name": "FileAsset1",
+                "RoleArn": {
+                  "Fn::GetAtt": [
+                    "PipelineAssetsFileRole59943A77",
+                    "Arn"
+                  ]
+                },
+                "RunOrder": 1
+              }
+            ],
+            "Name": "Assets"
+          },
+          {
+            "Actions": [
+              {
+                "ActionTypeId": {
+                  "Category": "Deploy",
+                  "Owner": "AWS",
+                  "Provider": "CloudFormation",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "StackName": "Pre-Prod-webService",
+                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
+                  "RoleArn": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":iam::743708639786:role/cdk-hnb659fds-cfn-exec-role-743708639786-us-east-1"
+                      ]
+                    ]
+                  },
+                  "ActionMode": "CHANGE_SET_REPLACE",
+                  "ChangeSetName": "PipelineChange",
+                  "TemplatePath": "Artifact_Build_Synth::assembly-PipelineStack-Pre-Prod/PipelineStackPreProdwebServiceAB8D31A1.template.json"
+                },
+                "InputArtifacts": [
+                  {
+                    "Name": "Artifact_Build_Synth"
+                  }
+                ],
+                "Name": "webService.Prepare",
+                "RoleArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::743708639786:role/cdk-hnb659fds-deploy-role-743708639786-us-east-1"
+                    ]
+                  ]
+                },
+                "RunOrder": 1
+              },
+              {
+                "ActionTypeId": {
+                  "Category": "Deploy",
+                  "Owner": "AWS",
+                  "Provider": "CloudFormation",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "StackName": "Pre-Prod-webService",
+                  "ActionMode": "CHANGE_SET_EXECUTE",
+                  "ChangeSetName": "PipelineChange"
+                },
+                "Name": "webService.Deploy",
+                "RoleArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::743708639786:role/cdk-hnb659fds-deploy-role-743708639786-us-east-1"
+                    ]
+                  ]
+                },
+                "RunOrder": 2
+              }
+            ],
+            "Name": "Pre-Prod"
           }
         ],
         "ArtifactStore": {
@@ -871,10 +1006,194 @@
         "aws:cdk:path": "PipelineStack/Pipeline/UpdatePipeline/SelfMutation/Resource"
       }
     },
+    "PipelineAssetsFileRole59943A77": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "codebuild.amazonaws.com",
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::743708639786:root"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PipelineStack/Pipeline/Assets/FileRole/Resource"
+      }
+    },
+    "PipelineAssetsFileRoleDefaultPolicy14DB8755": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":logs:us-east-1:743708639786:log-group:/aws/codebuild/*"
+                  ]
+                ]
+              }
+            },
+            {
+              "Action": [
+                "codebuild:CreateReportGroup",
+                "codebuild:CreateReport",
+                "codebuild:UpdateReport",
+                "codebuild:BatchPutTestCases",
+                "codebuild:BatchPutCodeCoverages"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":codebuild:us-east-1:743708639786:report-group/*"
+                  ]
+                ]
+              }
+            },
+            {
+              "Action": [
+                "codebuild:BatchGetBuilds",
+                "codebuild:StartBuild",
+                "codebuild:StopBuild"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": "arn:*:iam::*:role/*-file-publishing-role-*"
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "PipelineArtifactsBucketAEA9A052",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "PipelineArtifactsBucketAEA9A052",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Action": [
+                "kms:Decrypt",
+                "kms:DescribeKey"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "PipelineAssetsFileRoleDefaultPolicy14DB8755",
+        "Roles": [
+          {
+            "Ref": "PipelineAssetsFileRole59943A77"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PipelineStack/Pipeline/Assets/FileRole/DefaultPolicy/Resource"
+      }
+    },
+    "PipelineAssetsFileAsset185A67CB4": {
+      "Type": "AWS::CodeBuild::Project",
+      "Properties": {
+        "Artifacts": {
+          "Type": "CODEPIPELINE"
+        },
+        "Environment": {
+          "ComputeType": "BUILD_GENERAL1_SMALL",
+          "Image": "aws/codebuild/standard:4.0",
+          "ImagePullCredentialsType": "CODEBUILD",
+          "PrivilegedMode": false,
+          "Type": "LINUX_CONTAINER"
+        },
+        "ServiceRole": {
+          "Fn::GetAtt": [
+            "PipelineAssetsFileRole59943A77",
+            "Arn"
+          ]
+        },
+        "Source": {
+          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": \"npm install -g cdk-assets\"\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack-Pre-Prod/PipelineStackPreProdwebServiceAB8D31A1.assets.json\\\" --verbose publish \\\"d479b0673ae15507e54969cfd0e90dec7cb7ddbae95cc93464e0f822f4c455f6:743708639786-us-east-1\\\"\"\n      ]\n    }\n  }\n}",
+          "Type": "CODEPIPELINE"
+        },
+        "EncryptionKey": {
+          "Fn::GetAtt": [
+            "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PipelineStack/Pipeline/Assets/FileAsset1/Default/Resource"
+      }
+    },
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAACkWPy27DIBBFvyX7yUR5bLJr4mU2lqt8AIWpMgGDxUNVhPj3Ghy3q3su0pwZ9ng+4X7zIX7CViq9y9J5wvwZhdTQORuiTzJC920HCi55SQUmnsiwpYC5U7p/N7hPSkRa60VGdrZAFc9SResU5r+J2bpyAT3Ovhu96muNi2ERamlQIBwxX5PU1K5ZqACLEfPgTJO17J1h2SwLFajbvxIb9b+69+5Jy7/eWEqB/hUfzu6OeMbD5hmYtz7ZyCPhsOQvlt2cIi4BAAA="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAACkWOy27DIBBFvyX7CVGabrKr62U3yFE/gOBpMwGD5QFFEeLfA360q3vmStzDUZzfxXH3oR681705JO0nFOkSlDbQesdhijpAh+zjpBHaH7dxhpFGtOSQRWp7I9cLvsdeBdzORgfyDmS8WuJbw4yB1648KqLfslT1Rd3jNinS31xRbpzBDEX2hc/a1mgsKa7HDBn4JNJn1AZDLRfKQGoQqfN2+X9N6S3peWWhDNV+jWT7f7Wc/B31vLRizhnkM9y8O5zEWbzt7ky0n6ILNKDolnwBrkcl9FQBAAA="
       },
       "Metadata": {
         "aws:cdk:path": "PipelineStack/CDKMetadata/Default"
