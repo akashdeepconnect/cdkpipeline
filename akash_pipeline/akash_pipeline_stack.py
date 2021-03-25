@@ -16,6 +16,7 @@ class AkashPipelineStack(cdk.Stack):
 
         this_dir = path.dirname(__file__)
         handler = lmd.Function(self,'Handler',
+            function_name="HandlerFunction",
             runtime = lmd.Runtime.PYTHON_3_7,
             handler = 'handler.handler',
             code=lmd.Code.from_asset(path.join(this_dir,'lambda'))

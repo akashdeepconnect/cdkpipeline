@@ -49,6 +49,7 @@
             "Arn"
           ]
         },
+        "FunctionName": "HandlerFunction",
         "Handler": "handler.handler",
         "Runtime": "python3.7"
       },
@@ -61,7 +62,7 @@
         "aws:asset:property": "Code"
       }
     },
-    "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184": {
+    "HandlerCurrentVersion93FB80BF65d0a99cd376c954273719be03a7890c": {
       "Type": "AWS::Lambda::Version",
       "Properties": {
         "FunctionName": {
@@ -133,7 +134,7 @@
         "aws:cdk:path": "AkashPipelineStack/Gateway/Account"
       }
     },
-    "GatewayDeployment880EB8C2834489ce2535f4c35275cdeaa6bc5218": {
+    "GatewayDeployment880EB8C28a4702a94efb5c5f671dbe012704b3f7": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -157,7 +158,7 @@
           "Ref": "Gateway43CB3636"
         },
         "DeploymentId": {
-          "Ref": "GatewayDeployment880EB8C2834489ce2535f4c35275cdeaa6bc5218"
+          "Ref": "GatewayDeployment880EB8C28a4702a94efb5c5f671dbe012704b3f7"
         },
         "StageName": "prod"
       },
@@ -188,7 +189,7 @@
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
-          "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+          "Ref": "HandlerCurrentVersion93FB80BF65d0a99cd376c954273719be03a7890c"
         },
         "Principal": "apigateway.amazonaws.com",
         "SourceArn": {
@@ -229,7 +230,7 @@
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
-          "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+          "Ref": "HandlerCurrentVersion93FB80BF65d0a99cd376c954273719be03a7890c"
         },
         "Principal": "apigateway.amazonaws.com",
         "SourceArn": {
@@ -289,7 +290,7 @@
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
-                  "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+                  "Ref": "HandlerCurrentVersion93FB80BF65d0a99cd376c954273719be03a7890c"
                 },
                 "/invocations"
               ]
@@ -306,7 +307,7 @@
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
-          "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+          "Ref": "HandlerCurrentVersion93FB80BF65d0a99cd376c954273719be03a7890c"
         },
         "Principal": "apigateway.amazonaws.com",
         "SourceArn": {
@@ -347,7 +348,7 @@
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
-          "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+          "Ref": "HandlerCurrentVersion93FB80BF65d0a99cd376c954273719be03a7890c"
         },
         "Principal": "apigateway.amazonaws.com",
         "SourceArn": {
@@ -410,7 +411,7 @@
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
-                  "Ref": "HandlerCurrentVersion93FB80BFa68d76cf8356a2ee5a1451fedc620184"
+                  "Ref": "HandlerCurrentVersion93FB80BF65d0a99cd376c954273719be03a7890c"
                 },
                 "/invocations"
               ]
