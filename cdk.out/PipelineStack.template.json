@@ -362,7 +362,7 @@
                   "Version": "1"
                 },
                 "Configuration": {
-                  "StackName": "Pre-Prod-webService",
+                  "StackName": "l2-w",
                   "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
                   "RoleArn": {
                     "Fn::Join": [
@@ -378,14 +378,14 @@
                   },
                   "ActionMode": "CHANGE_SET_REPLACE",
                   "ChangeSetName": "PipelineChange",
-                  "TemplatePath": "Artifact_Build_Synth::assembly-PipelineStack-Pre-Prod/PipelineStackPreProdwebServiceAB8D31A1.template.json"
+                  "TemplatePath": "Artifact_Build_Synth::assembly-PipelineStack-l2/PipelineStackl2w8C07A55C.template.json"
                 },
                 "InputArtifacts": [
                   {
                     "Name": "Artifact_Build_Synth"
                   }
                 ],
-                "Name": "webService.Prepare",
+                "Name": "w.Prepare",
                 "RoleArn": {
                   "Fn::Join": [
                     "",
@@ -408,11 +408,11 @@
                   "Version": "1"
                 },
                 "Configuration": {
-                  "StackName": "Pre-Prod-webService",
+                  "StackName": "l2-w",
                   "ActionMode": "CHANGE_SET_EXECUTE",
                   "ChangeSetName": "PipelineChange"
                 },
-                "Name": "webService.Deploy",
+                "Name": "w.Deploy",
                 "RoleArn": {
                   "Fn::Join": [
                     "",
@@ -428,7 +428,7 @@
                 "RunOrder": 2
               }
             ],
-            "Name": "Pre-Prod"
+            "Name": "l2"
           }
         ],
         "ArtifactStore": {
@@ -1176,7 +1176,7 @@
           ]
         },
         "Source": {
-          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": \"npm install -g cdk-assets\"\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack-Pre-Prod/PipelineStackPreProdwebServiceAB8D31A1.assets.json\\\" --verbose publish \\\"d479b0673ae15507e54969cfd0e90dec7cb7ddbae95cc93464e0f822f4c455f6:743708639786-us-east-1\\\"\"\n      ]\n    }\n  }\n}",
+          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": \"npm install -g cdk-assets\"\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack-l2/PipelineStackl2w8C07A55C.assets.json\\\" --verbose publish \\\"d479b0673ae15507e54969cfd0e90dec7cb7ddbae95cc93464e0f822f4c455f6:743708639786-us-east-1\\\"\"\n      ]\n    }\n  }\n}",
           "Type": "CODEPIPELINE"
         },
         "EncryptionKey": {
