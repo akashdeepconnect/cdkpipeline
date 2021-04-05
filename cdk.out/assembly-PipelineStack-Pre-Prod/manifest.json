@@ -1,0 +1,460 @@
+{
+  "version": "9.0.0",
+  "artifacts": {
+    "PipelineStackPreProdwebServiceAB8D31A1.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "PipelineStackPreProdwebServiceAB8D31A1.assets.json",
+        "requiresBootstrapStackVersion": 4,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "PipelineStackPreProdwebServiceAB8D31A1": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://743708639786/us-east-1",
+      "properties": {
+        "templateFile": "PipelineStackPreProdwebServiceAB8D31A1.template.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::743708639786:role/cdk-hnb659fds-deploy-role-743708639786-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::743708639786:role/cdk-hnb659fds-cfn-exec-role-743708639786-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-743708639786-us-east-1/731e28b87c79185013ee44b6191963a5062790f07e34afcaf0e22fa33b01fb5c.json",
+        "requiresBootstrapStackVersion": 4,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "PipelineStackPreProdwebServiceAB8D31A1.assets"
+        ],
+        "stackName": "Pre-Prod-webService"
+      },
+      "dependencies": [
+        "PipelineStackPreProdwebServiceAB8D31A1.assets"
+      ],
+      "metadata": {
+        "/PipelineStack/Pre-Prod/webService/Handler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HandlerServiceRoleFCDC14AE",
+            "trace": [
+              "new Role (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.js:72:22)",
+              "new Function (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:79:35)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Handler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Handler886CB40B",
+            "trace": [
+              "new Function (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:135:26)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Handler/CurrentVersion/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HandlerCurrentVersion93FB80BF22dae965144d0bfb90617a5a6171286d",
+            "trace": [
+              "new Version (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-lambda\\lib\\lambda-version.js:45:25)",
+              "Function.get currentVersion [as currentVersion] (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:222:32)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7941:150",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7941:118",
+              "Kernel._ensureSync (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8563:28)",
+              "Kernel.get (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7941:36)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Gateway43CB3636",
+            "trace": [
+              "new RestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:389:26)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:25:9)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayCloudWatchRole34305E06",
+            "trace": [
+              "new Role (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.js:72:22)",
+              "LambdaRestApi.configureCloudWatchRole (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:250:22)",
+              "new RestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:405:18)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:25:9)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayAccount6D7AA49C",
+            "trace": [
+              "LambdaRestApi.configureCloudWatchRole (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:254:26)",
+              "new RestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:405:18)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:25:9)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayDeployment880EB8C2db09466bd528428384bc6acea92345aa",
+            "trace": [
+              "new Deployment (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\deployment.js:48:25)",
+              "LambdaRestApi.configureDeployment (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:266:38)",
+              "new RestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:407:14)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:25:9)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayDeploymentStageprod62BC6904",
+            "trace": [
+              "new Stage (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\stage.js:61:26)",
+              "LambdaRestApi.configureDeployment (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:274:36)",
+              "new RestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:407:14)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:25:9)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayEndpoint4DF49EE0",
+            "trace": [
+              "LambdaRestApi.configureDeployment (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:278:13)",
+              "new RestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\restapi.js:407:14)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:25:9)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Default/{proxy+}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Gatewayproxy441946D2",
+            "trace": [
+              "new Resource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:231:26)",
+              "new ProxyResource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:309:9)",
+              "RootResource.addProxy (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:44:16)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:31:23)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Default/{proxy+}/ANY/ApiPermission.PipelineStackPreProdwebServiceGateway4B3D7C49.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayproxyANYApiPermissionPipelineStackPreProdwebServiceGateway4B3D7C49ANYproxyC0717B1E",
+            "trace": [
+              "Version.addPermission (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:40:9)",
+              "LambdaIntegration.bind (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\integrations\\lambda.js:44:22)",
+              "new Method (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\method.js:41:40)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:36:16)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:334:22)",
+              "new ProxyResource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:317:35)",
+              "RootResource.addProxy (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:44:16)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:31:23)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Default/{proxy+}/ANY/ApiPermission.Test.PipelineStackPreProdwebServiceGateway4B3D7C49.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayproxyANYApiPermissionTestPipelineStackPreProdwebServiceGateway4B3D7C49ANYproxy8F1C2245",
+            "trace": [
+              "Version.addPermission (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:40:9)",
+              "LambdaIntegration.bind (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\integrations\\lambda.js:51:26)",
+              "new Method (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\method.js:41:40)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:36:16)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:334:22)",
+              "new ProxyResource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:317:35)",
+              "RootResource.addProxy (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:44:16)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:31:23)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Default/{proxy+}/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayproxyANYCE067C19",
+            "trace": [
+              "new Method (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\method.js:57:26)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:36:16)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:334:22)",
+              "new ProxyResource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:317:35)",
+              "RootResource.addProxy (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:44:16)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:31:23)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Default/ANY/ApiPermission.PipelineStackPreProdwebServiceGateway4B3D7C49.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayANYApiPermissionPipelineStackPreProdwebServiceGateway4B3D7C49ANY5F0D49CF",
+            "trace": [
+              "Version.addPermission (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:40:9)",
+              "LambdaIntegration.bind (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\integrations\\lambda.js:44:22)",
+              "new Method (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\method.js:41:40)",
+              "RootResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:36:16)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:331:37)",
+              "new ProxyResource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:317:35)",
+              "RootResource.addProxy (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:44:16)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:31:23)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Default/ANY/ApiPermission.Test.PipelineStackPreProdwebServiceGateway4B3D7C49.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayANYApiPermissionTestPipelineStackPreProdwebServiceGateway4B3D7C49ANY3D3EB5E8",
+            "trace": [
+              "Version.addPermission (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:40:9)",
+              "LambdaIntegration.bind (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\integrations\\lambda.js:51:26)",
+              "new Method (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\method.js:41:40)",
+              "RootResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:36:16)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:331:37)",
+              "new ProxyResource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:317:35)",
+              "RootResource.addProxy (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:44:16)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:31:23)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Gateway/Default/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GatewayANY8DB43F89",
+            "trace": [
+              "new Method (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\method.js:57:26)",
+              "RootResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:36:16)",
+              "ProxyResource.addMethod (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:331:37)",
+              "new ProxyResource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:317:35)",
+              "RootResource.addProxy (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\resource.js:44:16)",
+              "new LambdaRestApi (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\aws-apigateway\\lib\\lambda-api.js:31:23)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/Url": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Url",
+            "trace": [
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:58",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "Kernel._create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8154:34)",
+              "Kernel.create (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7895:29)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:22:30)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:9",
+              "visit (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:184:9)",
+              "visit (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:181:9)",
+              "injectMetadataResources (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:117:5)",
+              "Object.synthesize (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
+              "Stage.synth (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\stage.js:100:41)",
+              "CdkStage.addApplication (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\pipelines\\lib\\stage.js:53:30)",
+              "CdkPipeline.addApplicationStage (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\pipelines\\lib\\pipeline.js:138:15)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:134",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:107",
+              "Kernel._ensureSync (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8563:28)",
+              "Kernel.invoke (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:34)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\default-synthesizer.js:412:19)",
+              "DefaultStackSynthesizer.synthesize (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\default-synthesizer.js:194:13)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:143:35",
+              "visit (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:184:9)",
+              "visit (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:181:9)",
+              "synthesizeTree (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:137:5)",
+              "Object.synthesize (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:33:5)",
+              "Stage.synth (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\stage.js:100:41)",
+              "CdkStage.addApplication (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\pipelines\\lib\\stage.js:53:30)",
+              "CdkPipeline.addApplicationStage (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\pipelines\\lib\\pipeline.js:138:15)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:134",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:107",
+              "Kernel._ensureSync (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8563:28)",
+              "Kernel.invoke (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:34)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ],
+        "/PipelineStack/Pre-Prod/webService/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\default-synthesizer.js:420:5)",
+              "DefaultStackSynthesizer.synthesize (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\default-synthesizer.js:194:13)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:143:35",
+              "visit (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:184:9)",
+              "visit (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:181:9)",
+              "synthesizeTree (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:137:5)",
+              "Object.synthesize (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:33:5)",
+              "Stage.synth (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\core\\lib\\stage.js:100:41)",
+              "CdkStage.addApplication (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\pipelines\\lib\\stage.js:53:30)",
+              "CdkPipeline.addApplicationStage (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\jsii-kernel-wdRRDE\\node_modules\\@aws-cdk\\pipelines\\lib\\pipeline.js:138:15)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:134",
+              "Kernel._wrapSandboxCode (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8582:24)",
+              "C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:107",
+              "Kernel._ensureSync (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:8563:28)",
+              "Kernel.invoke (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:7970:34)",
+              "KernelHost.processRequest (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9479:36)",
+              "KernelHost.run (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9442:22)",
+              "Immediate._onImmediate (C:\\Users\\TECHNU~1\\AppData\\Local\\Temp\\tmp0duuj1it\\lib\\program.js:9443:46)",
+              "processImmediate (internal/timers.js:461:21)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
